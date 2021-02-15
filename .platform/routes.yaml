@@ -1,3 +1,8 @@
 "https://{default}/":
   type: upstream
   upstream: "app:http"
+  redirects:
+    paths:
+      '/check-api':
+        to: 'https://fivetran.com/check-api'
+        code: 307
