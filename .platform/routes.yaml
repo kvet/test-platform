@@ -1,10 +1,14 @@
 "https://{default}/":
   type: upstream
-  upstream: "varnish:http"
-  cache:
-      enabled: false
+  upstream: "app:http"
   redirects:
     paths:
       '/check-api':
         to: 'https://fivetran.com/check-api'
         code: 307
+        
+"https://{default}/check-static":
+  type: upstream
+  upstream: "varnish:http"
+  cache:
+      enabled: false
